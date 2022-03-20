@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         replyheader = findViewById(R.id.replyheader);
         replytext = findViewById(R.id.replytext);
         replytext.setText(message);
+
         if (savedInstanceState != null) {
             boolean isVisible = savedInstanceState.getBoolean("reply is visible");
             if (isVisible) {
@@ -41,8 +42,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void secondActivity(View view) {
+        //to check if button is clicked
         Log.d(LOG_TAG, "Button clicked!");
+        //taking to another activity
         Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+        //getting text and sending to another activity
         String message = messageText.getText().toString();
         intent.putExtra(EXTRA_MESSAGE, message);
         startActivityForResult(intent, TEXT_REQUEST);
@@ -54,12 +58,14 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode == TEXT_REQUEST) {
             if (resultCode == RESULT_OK) {
                 String reply = data.getStringExtra(SecondActivity.EXTRA_REPLY);
+                //making header visible after the text has been returned from another activity
                 replyheader.setVisibility(View.VISIBLE);
                 replytext.setText(reply);
                 replytext.setVisibility(View.VISIBLE);
             }
         }
     }
+    //lab 5 lifecycle callbacks
     @Override
     public void onStart(){
         super.onStart();

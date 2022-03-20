@@ -36,6 +36,8 @@ public class SecondActivity extends AppCompatActivity {
         Log.d(LOG_TAG, "End this Activity");
         finish();
     }
+
+    //lab 5 lifecycle callbacks
     @Override
     public void onStart(){
         super.onStart();
