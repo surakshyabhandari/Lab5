@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         Log.d(LOG_TAG, "onCreate");
         messageText = findViewById(R.id.messageTextbar);
         Intent intenti = getIntent();
+        //connecting to xml components
         String message = intenti.getStringExtra(SecondActivity.EXTRA_REPLY);
         replyheader = findViewById(R.id.replyheader);
         replytext = findViewById(R.id.replytext);
