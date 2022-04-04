@@ -21,7 +21,7 @@ public class MainActivity2 extends AppCompatActivity {
     public void addItem(View view) {
         Button itembtn = (Button) (view);
         String item = itembtn.getText().toString();
-
+        //sending btn text back to main activity
         Intent intent = new Intent();
         intent.putExtra(EXTRA_REPLY, item);
         setResult(RESULT_OK,intent);

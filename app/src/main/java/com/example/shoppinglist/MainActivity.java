@@ -21,13 +21,13 @@ public class MainActivity extends AppCompatActivity {
 
         if (savedInstanceState != null){
             for (int index=0; index<parent.getChildCount(); index++){
-                final TextView child = (TextView) parent.getChildAt(index);
+                final TextView textItem = (TextView) parent.getChildAt(index);
                 boolean isVisible = savedInstanceState.getBoolean(Integer.toString(index) + "_visible");
 
                 if (isVisible) {
-                    child.setVisibility(View.VISIBLE);
+                    textItem.setVisibility(View.VISIBLE);
                     String text = savedInstanceState.getString(Integer.toString(index) + "_text");
-                    child.setText(text);
+                    textItem.setText(text);
                 }
             }
         }
@@ -61,11 +61,11 @@ public class MainActivity extends AppCompatActivity {
                 String item = data.getStringExtra(MainActivity2.EXTRA_REPLY);
 
                 for(int index = 0; index < parent.getChildCount(); index++){
-                    final TextView child = (TextView) parent.getChildAt(index);
+                    final TextView textItem = (TextView) parent.getChildAt(index);
 
-                    if (child.getVisibility() == View.INVISIBLE) {
-                        child.setText(Integer.toString(index+1) + ". " + item);
-                        child.setVisibility(View.VISIBLE);
+                    if (textItem.getVisibility() == View.INVISIBLE) {
+                        textItem.setText(Integer.toString(index+1) + ". " + item);
+                        textItem.setVisibility(View.VISIBLE);
                         break;
                     }
                 }
